@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LaucnherYouTube"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="119*"/>
@@ -16,7 +16,10 @@
                 HorizontalAlignment="Left" Margin="379,202,0,0" VerticalAlignment="Top" Background="White"/>
         <TextBlock x:Name="_textCurrentVersion" HorizontalAlignment="Left" Margin="356,109,0,0" TextWrapping="NoWrap" Text="Current Version: " VerticalAlignment="Top" Height="NaN"/>
         <TextBlock x:Name="_textServerVersion" HorizontalAlignment="Left" Margin="360,166,0,0" TextWrapping="Wrap" Text="Server version: " VerticalAlignment="Top"/>
-        <Button x:Name="LaunchGame" Content="Launch"   Click="ButtonLaunchGame" Margin="0,0,49,29" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Width="40" Height="20" RenderTransformOrigin="0.589,0.526"/>
-        <TextBlock x:Name="AppState" Margin="0,0,29,67" TextWrapping="Wrap" Text="StateAppDebug" FontSize="11" HorizontalAlignment="Right" Width="80" Height="15" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <Button x:Name="LaunchGame" Content="Launch"   Click="ButtonLaunchGame" Margin="0,0,49,29" VerticalAlignment="Bottom" Grid.Column="1" Width="40" Height="20" RenderTransformOrigin="0.589,0.526" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="AppState" Margin="0,0,29,67" TextWrapping="Wrap" Text="Initializing game..." FontSize="11" HorizontalAlignment="Right" Width="92" Height="15" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <TextBlock x:Name="DownloadAppState" Margin="306,360,0,0" TextWrapping="Wrap" Text="DownloadAppState" Grid.ColumnSpan="2" Height="16" VerticalAlignment="Top" HorizontalAlignment="Left" Width="368"/>
+        <ProgressBar Name="ProgressBarExtractFile" Margin="306,385,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="400" Height="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ServerConnecting" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Check server..." VerticalAlignment="Top" Width="80" Height="20"/>
     </Grid>
 </Window>
