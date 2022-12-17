@@ -31,7 +31,7 @@ namespace LaucnherYouTube
 
             LocateVersionXML();
             CheckAppLaunchTimer();
-            //ServerDownloadChacheGame();
+            ServerDownloadChacheGame();
             ArgumentsUIValue();
         }
         #region XMLREAD
@@ -55,21 +55,16 @@ namespace LaucnherYouTube
         {
             if (client == null || !client.IsBusy)
             {
-                try
-                {
+
                 client = new WebClient();
                 client.DownloadFileCompleted += CompleteDownloadVersionXMLServer;
                 client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/VarionDrakon/LauncherGame/main/versionServer.xml"), "Assets/versionServer.xml");
-                }
-                catch
-                {
-                    ServerConnecting.Text = "Server offline!";
-                }
+ 
 
             }
             if (client != null)
             {
-                ServerConnecting.Text = "Server online!";
+              
             }
         }
         private void CompleteDownloadVersionXMLServer(object sender, AsyncCompletedEventArgs e)
