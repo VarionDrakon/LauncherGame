@@ -64,7 +64,7 @@ namespace LaucnherYouTube
             }
             if (client != null)
             {
-              
+                              MessageBox.Show("XML downnload complete!");
             }
         }
         private void CompleteDownloadVersionXMLServer(object sender, AsyncCompletedEventArgs e)
