@@ -1,10 +1,10 @@
-﻿using LaucnherYouTube.ChildWindow;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Threading;
 using System.Xml;
@@ -20,22 +20,21 @@ namespace LaucnherYouTube
         private string _stateServerVersionXML;
         private int? idProcessApp = null;
         private bool appIsStarting = false;
+        private bool checkUpdate = true;
         private bool isStartUnzipUpdateFileApp = true;
+        public static bool UserAllowUpdateApp { get; set; } = false;
         private DispatcherTimer dispatcherTimer;
+        WebClient clientDownloadApp = new WebClient();
         public MainWindow()
         {
-            ServerXMLDownload();
-            ServerVersionXML();
-
             InitializeComponent();
+            UpdateUI();
+            ServerXMLDownload();
 
             LocateVersionXML();
-            CheckAppLaunchTimer();
-            ServerDownloadChacheGame();
-            ArgumentsUIValue();
+
         }
         #region XMLREAD
-        private static WebClient client;
         private void LocateVersionXML()
         {
             XmlReader reader = XmlReader.Create(xmlFile);
@@ -51,20 +50,24 @@ namespace LaucnherYouTube
                 }
             }
         }
-        public void ServerXMLDownload()
+        public async void ServerXMLDownload()
         {
-            if (client == null || !client.IsBusy)
+            try
             {
-
-                client = new WebClient();
-                client.DownloadFileCompleted += CompleteDownloadVersionXMLServer;
-                client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/VarionDrakon/LauncherGame/main/versionServer.xml"), "Assets/versionServer.xml");
- 
-
+                HttpClient serverClient = new HttpClient();
+                var responseServerClient = await serverClient.GetAsync(new Uri("https://raw.githubusercontent.com"));
+                if (responseServerClient.IsSuccessStatusCode)
+                {
+                    WebClient client = new WebClient();
+                    client.DownloadFileCompleted += CompleteDownloadVersionXMLServer;
+                    client.DownloadFileAsync(new Uri("https://raw.githubusercontent.com/VarionDrakon/LauncherGame/main/versionServer.xml"), "Assets/versionServer.xml");
+                    ServerConnecting.Text = "Server online!";
+                }
             }
-            if (client != null)
+            catch
             {
-                              MessageBox.Show("XML downnload complete!");
+                ServerConnecting.Text = "Server offline!";
+                FoundNewVersion.IsEnabled = false;
             }
         }
         private void CompleteDownloadVersionXMLServer(object sender, AsyncCompletedEventArgs e)
@@ -75,7 +78,7 @@ namespace LaucnherYouTube
             }
             else
             {
-                MessageBox.Show("Download complete!");
+                ServerVersionXML();
             }
         }
         public void ServerVersionXML()
@@ -95,16 +98,26 @@ namespace LaucnherYouTube
         }
         #endregion
         #region UIFUNC
-        private void ArgumentsUIValue()
+        private void ButtonFoundNewVersion(object sender, RoutedEventArgs e)
         {
-            ProgressBarExtractFile.Minimum = 0;
-            _textCurrentVersion.Text += _stateLocateVersionXML;
-            _textServerVersion.Text += _stateServerVersionXML;
+            ChildWindow.AllowUpdate allowUpdateWindow = new ChildWindow.AllowUpdate();
+            allowUpdateWindow.Show();
+        }
+        private void UpdateUI()
+        {
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(BackgroundUIFunction);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
         }
         private void ButtonUpdateDialogWindow(object sender, RoutedEventArgs rea)
         {
-            UpdateWindow updateWindow = new UpdateWindow();
-            updateWindow.ShowDialog();
+            ServerDownloadChacheGameAsync();
+        }
+        private void ButtonCancelDownloadApp(object sender, RoutedEventArgs e)
+        {
+            ButtonReinstallApp.IsEnabled = true;
+            clientDownloadApp.CancelAsync();
         }
         private void ButtonLaunchGame(object sender, RoutedEventArgs rea)
         {
@@ -123,15 +136,22 @@ namespace LaucnherYouTube
         }
         #endregion
         #region BACKGROUNDFUNC
-        private void CheckAppLaunchTimer()
+        public void BackgroundUIFunction(object sender, EventArgs ea)
         {
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(SingleAppTimerCheckMethod);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
-            dispatcherTimer.Start();
-        }
-        public void SingleAppTimerCheckMethod(object sender, EventArgs ea)
-        {
+            if (_stateLocateVersionXML != _stateServerVersionXML & checkUpdate == true)
+            {
+                FoundNewVersion.IsEnabled = true;
+                checkUpdate = false;
+            }
+            if (UserAllowUpdateApp == true)
+            {
+                FoundNewVersion.IsEnabled = false;
+                ServerDownloadChacheGameAsync();
+                UserAllowUpdateApp = false;
+            }
+            ProgressBarExtractFile.Minimum = 0;
+            _textCurrentVersion.Text = "Current version: " + _stateLocateVersionXML;
+            _textServerVersion.Text = "Server version: " + _stateServerVersionXML;
             Process[] processedUsers = Process.GetProcesses();
             foreach (Process allprocessed in processedUsers)
             {
@@ -153,43 +173,41 @@ namespace LaucnherYouTube
         }
         #endregion
         #region UPDATEFUNC
-        public void ServerDownloadChacheGame()
+        public void ServerDownloadChacheGameAsync()
         {
-            if (client == null || !client.IsBusy)
-            {
-                client = new WebClient();
-                client.DownloadFileCompleted += CompleteDownloadChacheGame;
-                MessageBox.Show("Start Download");
-                client.DownloadFileAsync(new Uri("https://drive.google.com/uc?export=download&confirm=no_antivirus&id=10g0Vd_GWyt7VwF392q77NVBNibfGzQLi"), zipPath);
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressDownloadServerGame);
-            }
-            if (client != null)
-            {
-                MessageBox.Show("Debug");
-            }
+            ButtonReinstallApp.IsEnabled = false;
+            LaunchGame.IsEnabled = false;
+            clientDownloadApp.DownloadFileCompleted += CompleteDownloadChacheGame;
+            clientDownloadApp.DownloadFileAsync(new Uri("https://drive.google.com/uc?export=download&confirm=no_antivirus&id=10g0Vd_GWyt7VwF392q77NVBNibfGzQLi"), zipPath);
+            clientDownloadApp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressDownloadServerGame);
         }
         private void CompleteDownloadChacheGame(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Error != null || e.Cancelled)
             {
-                DownloadAppState.Text = "Download error: " + e.Error;
+                ButtonReinstallApp.IsEnabled = true;
+                DownloadAppState.Text = "Download error: " + e.Error + e.Cancelled;
+                clientDownloadApp.Dispose();
             }
             else
             {
-                ProgressBarExtractFile.Value = 0;
-                ZipArchive zipFileServer = ZipFile.OpenRead(zipPath);
-                int zipFilesCount = zipFileServer.Entries.Count;
-                ProgressBarExtractFile.Maximum = zipFilesCount;
-
-                foreach (var zip in zipFileServer.Entries)
+                using (ZipArchive zipFileServer = ZipFile.OpenRead(zipPath))
                 {
-                    if (isStartUnzipUpdateFileApp == true)
+                    ProgressBarExtractFile.Value = 0;
+                    int zipFilesCount = zipFileServer.Entries.Count;
+                    ProgressBarExtractFile.Maximum = zipFilesCount;
+                    foreach (var zip in zipFileServer.Entries)
                     {
-                        zip.Archive.ExtractToDirectory(appTemlPath);
-                        isStartUnzipUpdateFileApp = false;
-                        break;
+                        if (isStartUnzipUpdateFileApp == true)
+                        {
+                            zip.Archive.ExtractToDirectory(appTemlPath);
+                            isStartUnzipUpdateFileApp = false;
+                            break;
+                        }
                     }
+                    ProgressBarExtractFile.Value = zipFilesCount;
                 }
+                File.Delete(zipPath);
                 foreach (string dgfse in Directory.GetFileSystemEntries(appTemlPath + "/Game"))
                 {
                     FileAttributes attributes = File.GetAttributes(dgfse);
@@ -216,11 +234,11 @@ namespace LaucnherYouTube
                         fileInf.MoveTo(@"Game/" + fileInf.Name);
                     }
                 }
-                ProgressBarExtractFile.Value = zipFilesCount;
                 DownloadAppState.Text = "Game installed!";
+                LaunchGame.IsEnabled = true;
+                ButtonReinstallApp.IsEnabled = true;
             }
         }
         #endregion
     }
 }
-

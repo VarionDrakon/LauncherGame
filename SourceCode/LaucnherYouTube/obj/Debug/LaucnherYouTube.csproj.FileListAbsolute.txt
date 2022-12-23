@@ -14,5 +14,6 @@ C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debu
 C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\LaucnherYouTube.csproj.CoreCompileInputs.cache
 C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\LaucnherYouTube.exe
 C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\LaucnherYouTube.pdb
-C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\ChildWindow\UpdateWindow.g.cs
-C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\ChildWindow\UpdateWindow.baml
+C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\ChildWindow\AllowUpdate.g.cs
+C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\ChildWindow\AllowUpdate.baml
+C:\Users\VarionDrakon-Life\source\repos\LaucnherYouTube\LaucnherYouTube\obj\Debug\App.baml
