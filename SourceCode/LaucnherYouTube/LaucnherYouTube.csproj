@@ -108,11 +108,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
@@ -132,8 +132,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SettingsIco.png" />
+    <Resource Include="res\SettingsIco.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="res\CANCEL.png" />
+    <Resource Include="res\DOWNLOAD.png" />
+    <Resource Include="res\REINSTALL.png" />
+    <Resource Include="res\UPDATE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\BackgroundApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\Border.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

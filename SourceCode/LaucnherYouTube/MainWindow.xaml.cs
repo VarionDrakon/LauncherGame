@@ -6,6 +6,7 @@ using System.IO.Compression;
 using System.Net;
 using System.Net.Http;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml;
 
@@ -240,5 +241,33 @@ namespace LaucnherYouTube
             }
         }
         #endregion
+
+        private void UnwrapApp_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+            else
+            {
+                WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void RollUpApp_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void CloseApp_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left) DragMove();
+        }
     }
 }

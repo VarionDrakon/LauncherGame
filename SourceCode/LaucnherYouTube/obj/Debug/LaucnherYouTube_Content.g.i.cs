@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("png-transparent-gears-options-settings-silhouette-movement-gear-into-each-other-t" +
-    "ransmission-rotation-connection.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/border.png")]
 
 

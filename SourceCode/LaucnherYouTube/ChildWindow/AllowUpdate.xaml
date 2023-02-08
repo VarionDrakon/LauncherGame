@@ -7,12 +7,15 @@
         mc:Ignorable="d"
         Title="AllowUpdate" Height="130" Width="200" ResizeMode="NoResize" WindowStyle="None" Background="{DynamicResource BackgroundWindows}">
     <Grid Height="120" Width="205">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="91*"/>
             <ColumnDefinition Width="110*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Yes update" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Click="ButtonAllowUpdate" Background="{DynamicResource ButtonBackgroundGlobals}" Foreground="{DynamicResource ButtonForegroundGlobal}" BorderBrush="{DynamicResource ButtonBorderBrushGlobal}"/>
-        <Button Content="No update" HorizontalAlignment="Left" Margin="22,70,0,0" VerticalAlignment="Top" Click="ButtonNoAllowUpdate" Grid.Column="1" Foreground="{DynamicResource ButtonForegroundGlobal}" Background="{DynamicResource ButtonBackgroundGlobals}" BorderBrush="{DynamicResource ButtonBorderBrushGlobal}"/>
+        <Button Content="Yes update" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Click="ButtonAllowUpdate" Background="{DynamicResource ButtonBackgroundGlobals}" BorderBrush="{DynamicResource ButtonBorderBrushGlobal}" Foreground="White"/>
+        <Button Content="No update" HorizontalAlignment="Left" Margin="22,70,0,0" VerticalAlignment="Top" Click="ButtonNoAllowUpdate" Grid.Column="1" Background="{DynamicResource ButtonBackgroundGlobals}" BorderBrush="{DynamicResource ButtonBorderBrushGlobal}" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="A new version has been found on the server! Download and install the update?" VerticalAlignment="Top" Height="55" Width="163" Grid.ColumnSpan="2" Foreground="White"/>
 
     </Grid>
