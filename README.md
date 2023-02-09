@@ -11,7 +11,8 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Watch][Watch-shield]][Watch-url]
+[![License][license-shield]][license-url]
 <hr>
 
 <!-- PROJECT LOGO -->
@@ -192,6 +193,9 @@ Links to my social networks for communication:
 
 [stars-shield]: https://img.shields.io/github/stars/VarionDrakon/LauncherGame?style=for-the-badge 
 [stars-url]: https://github.com/VarionDrakon/LauncherGame/stargazers
+
+[Watch-shield]: https://img.shields.io/github/watchers/VarionDrakon/LauncherGame?style=for-the-badge
+[Watch-url]: https://github.com/VarionDrakon/LauncherGame/watchers
 
 [issues-shield]: https://img.shields.io/github/issues-raw/VarionDrakon/LauncherGame?style=for-the-badge
 [issues-url]: https://github.com/VarionDrakon/LauncherGame?/issues
