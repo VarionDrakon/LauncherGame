@@ -190,7 +190,7 @@ Links to my social networks for communication:
 [forks-shield]: https://img.shields.io/github/forks/VarionDrakon/LauncherGame?style=for-the-badge
 [forks-url]: https://github.com/VarionDrakon/LauncherGame/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/VarionDrakon/LauncherGame?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/VarionDrakon/LauncherGame?style=for-the-badge 
 [stars-url]: https://github.com/VarionDrakon/LauncherGame/stargazers
 
 [issues-shield]: https://img.shields.io/github/issues-raw/VarionDrakon/LauncherGame?style=for-the-badge
