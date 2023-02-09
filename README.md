@@ -14,9 +14,6 @@
 [![MIT License][license-shield]][license-url]
 <hr>
 
-![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCkJViaw0-xsDvbTQRTu4OMA?style=social)
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
