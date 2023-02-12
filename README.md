@@ -200,7 +200,7 @@ Links to my social networks for communication:
 [issues-shield]: https://img.shields.io/github/issues-raw/VarionDrakon/LauncherGame?style=for-the-badge
 [issues-url]: https://github.com/VarionDrakon/LauncherGame?/issues
 
-[license-shield]: https://img.shields.io/github/license/VarionDrakon/LauncherGame?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/VarionDrakon/LauncherGame?style=for-the-badge 
 [license-url]: https://github.com/VarionDrakon/LauncherGame/blob/main/LICENSE
 
 [VusialStudio2022]: https://img.shields.io/badge/Visual%20Studio%202022-800080?style=for-the-badge&logo=visualstudio&logoColor=white
