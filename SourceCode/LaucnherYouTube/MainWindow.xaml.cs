@@ -7,6 +7,8 @@ using System.Net;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 
@@ -25,15 +27,22 @@ namespace LaucnherYouTube
         private bool isStartUnzipUpdateFileApp = true;
         public static bool UserAllowUpdateApp { get; set; } = false;
         private DispatcherTimer dispatcherTimer;
+        private Process processApp;
+        private Point scrollPointMouse = new Point();
+        private double speedScrollHorizontalOffset = 0.3;
+
         WebClient clientDownloadApp = new WebClient();
+
         public MainWindow()
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExcepctionEventApp);
             InitializeComponent();
+
             UpdateUI();
             ServerXMLDownload();
-
+            UpdateContentSever();
             LocateVersionXML();
-
         }
         #region XMLREAD
         private void LocateVersionXML()
@@ -124,7 +133,7 @@ namespace LaucnherYouTube
         {
             ProcessStartInfo procInfoLaunchGame = new ProcessStartInfo();
             procInfoLaunchGame.FileName = @"Game\Steampunk Edge - IcePunk.exe";
-            Process processApp = new Process();
+            processApp = new Process();
             processApp.StartInfo = procInfoLaunchGame;
             processApp.Start();
             idProcessApp = processApp.Id;
@@ -134,6 +143,35 @@ namespace LaucnherYouTube
             ProgressBarExtractFile.Maximum = 100;
             DownloadAppState.Text = "Download: " + dpcea.BytesReceived + " of " + dpcea.TotalBytesToReceive + " . Process: " + dpcea.ProgressPercentage + "%";
             ProgressBarExtractFile.Value = dpcea.ProgressPercentage;
+        }
+        private void ButtonKillProcessApp(object sender, RoutedEventArgs e)
+        {
+            if (appIsStarting == true)
+            {
+                processApp.Kill();
+            }
+        } 
+        private void ScrollViewerContent_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ScrollViewerContent.ReleaseMouseCapture();
+        }
+
+        private void ScrollViewerContent_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            scrollPointMouse = e.GetPosition(ScrollViewerContent);
+            speedScrollHorizontalOffset = ScrollViewerContent.HorizontalOffset;
+            ScrollViewerContent.CaptureMouse();
+        }
+        private void ScrollViewerContent_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewerContent.ScrollToHorizontalOffset(ScrollViewerContent.HorizontalOffset - e.Delta);
+        }
+        private void ScrollViewerContent_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (ScrollViewerContent.IsMouseCaptured)
+            {
+                ScrollViewerContent.ScrollToHorizontalOffset(speedScrollHorizontalOffset + (scrollPointMouse.X - e.GetPosition(ScrollViewerContent).X));
+            }
         }
         #endregion
         #region BACKGROUNDFUNC
@@ -172,15 +210,43 @@ namespace LaucnherYouTube
                 AppState.Text = "App is starting!";
             }
         }
+        private static void ExcepctionEventApp(object sender, UnhandledExceptionEventArgs ueea)
+        {
+            Exception e = (Exception)ueea.ExceptionObject;
+            LoggingProcessJobs("EXCEPTION" + e.Message.ToString());
+        }
+        private static void LoggingProcessJobs(string s)
+        {
+            if (Directory.Exists(@"Log/") == false)
+            {
+                Directory.CreateDirectory(@"Log/");
+            }
+            DateTime now = DateTime.Now;
+            string todayTimeLog = now.ToString("mmHHddMMyyyyy");
+            string nameFileLog = @"Log/" + "Log" + todayTimeLog + ".txt";
+
+            using (StreamWriter sw = new StreamWriter(nameFileLog, false))
+            {
+                sw.WriteLineAsync(s);
+            }
+        }
         #endregion
         #region UPDATEFUNC
         public void ServerDownloadChacheGameAsync()
         {
-            ButtonReinstallApp.IsEnabled = false;
-            LaunchGame.IsEnabled = false;
-            clientDownloadApp.DownloadFileCompleted += CompleteDownloadChacheGame;
-            clientDownloadApp.DownloadFileAsync(new Uri("https://drive.google.com/uc?export=download&confirm=no_antivirus&id=10g0Vd_GWyt7VwF392q77NVBNibfGzQLi"), zipPath);
-            clientDownloadApp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressDownloadServerGame);
+            try
+            {
+                ButtonReinstallApp.IsEnabled = false;
+                LaunchGame.IsEnabled = false;
+                clientDownloadApp.DownloadFileCompleted += CompleteDownloadChacheGame;
+                clientDownloadApp.DownloadFileAsync(new Uri("https://drive.google.com/uc?export=download&confirm=no_antivirus&id=10g0Vd_GWyt7VwF392q77NVBNibfGzQLi"), zipPath);
+                clientDownloadApp.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressDownloadServerGame);
+            }
+            catch (Exception e)
+            {
+                LoggingProcessJobs("EXCEPTION E: " + e.Message.ToString());
+            }
+
         }
         private void CompleteDownloadChacheGame(object sender, AsyncCompletedEventArgs e)
         {
@@ -241,7 +307,7 @@ namespace LaucnherYouTube
             }
         }
         #endregion
-
+        #region WINDOWMANAGMENT 
         private void UnwrapApp_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
@@ -269,5 +335,20 @@ namespace LaucnherYouTube
         {
             if (e.ChangedButton == MouseButton.Left) DragMove();
         }
+
+        #endregion
+        #region WEBCONTENT
+        private void UpdateContentSever()
+        {
+            var brushContentServer = new ImageBrush();
+            brushContentServer.ImageSource = new BitmapImage(new Uri("https://raw.githubusercontent.com/VarionDrakon/VarionDrakon.github.io/4c68931bdfa5acf7a6ef0cb56d13797b7493d523/otherFiles/img/electrods.png", UriKind.Absolute));
+            broochButtonContentServer_Content1.Background = brushContentServer;
+            broochButtonContentServer_Content2.Background = brushContentServer;
+            broochButtonContentServer_Content3.Background = brushContentServer;
+            broochButtonContentServer_Content4.Background = brushContentServer;
+            broochButtonContentServer_Content5.Background = brushContentServer;
+            broochButtonContentServer_Content6.Background = brushContentServer;
+        }
+        #endregion
     }
 }

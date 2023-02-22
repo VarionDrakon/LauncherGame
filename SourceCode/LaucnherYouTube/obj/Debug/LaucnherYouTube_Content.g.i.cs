@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/border.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/js/jsstyle.js")]
 
 

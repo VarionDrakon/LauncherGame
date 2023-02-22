@@ -51,10 +51,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -132,19 +138,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\SettingsIco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="res\CANCEL.png" />
-    <Resource Include="res\DOWNLOAD.png" />
-    <Resource Include="res\REINSTALL.png" />
-    <Resource Include="res\UPDATE.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="backgroundContent.png" />
+    <Resource Include="reinstall.png" />
     <Resource Include="res\BackgroundApp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="res\Border.png" />
+    <Resource Include="res\cancel.png" />
+    <Resource Include="res\download.png" />
+    <Resource Include="res\reinstall.png" />
+    <Resource Include="res\update.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
