@@ -123,9 +123,9 @@ There is no documentation, but you are holding on.
 - [x] Unpacking the update archive
 - [x] Launching and tracking the process of a running game/program
     - [x] Tracking
-    - [ ] Forced closure of the process
-- [ ] Informative content
-- [ ] Creating logs while working
+    - [x] Forced closure of the process
+- [x] Informative content
+- [-] (BETA) Creating logs while working 
 - [ ] Startup Argument Settings
 - [ ] Speed control of the launcher
 - [ ] Support for multiple programs
