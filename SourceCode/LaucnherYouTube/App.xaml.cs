@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LaucnherYouTube.ChildWindow;
 using System.Windows;
 
 namespace LaucnherYouTube
@@ -13,5 +8,14 @@ namespace LaucnherYouTube
     /// </summary>
     public partial class App : Application
     {
+        private void StartUpArgumentsInitialMethod(object sender, StartupEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            if(e.Args.Length >= 1)
+            {
+                mainWindow.SendersArgumentsTextBlock.Text += string.Join(" ; ", e.Args);
+            }
+            mainWindow.Show();
+        }
     }
 }
