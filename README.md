@@ -126,8 +126,8 @@ There is no documentation, but you are holding on.
     - [x] Forced closure of the process
 - [x] Informative content
 - [-] (BETA) Creating logs while working 
-- [ ] Startup Argument Settings
-- [ ] Speed control of the launcher
+- [x] Startup Argument Settings
+- [x] Speed control of the launcher
 - [ ] Support for multiple programs
 - [ ] authorization in the launcher
 - [ ] the final elimination of bugs and release into release with subsequent "support".
