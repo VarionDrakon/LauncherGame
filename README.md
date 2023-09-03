@@ -125,12 +125,12 @@ There is no documentation, but you are holding on.
     - [x] Tracking
     - [x] Forced closure of the process
 - [x] Informative content
-- [-] (BETA) Creating logs while working 
+- [-] (BETA) Creating logs while working (Dropped)
 - [x] Startup Argument Settings
 - [x] Speed control of the launcher
-- [ ] Support for multiple programs
-- [ ] authorization in the launcher
-- [ ] the final elimination of bugs and release into release with subsequent "support".
+- [-] Support for multiple programs (Dropped)
+- [-] authorization in the launcher (Dropped)
+- [x] the final elimination of bugs and release into release with subsequent "support".
 
 The map is approximate and may change during development*
 
