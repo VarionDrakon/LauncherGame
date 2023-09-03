@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\
+C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Release\
 LaucnherYouTube
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\App.xaml
 31510254706
 
-82043545498
+7-169333180
 2955476695
 ChildWindow\AllowUpdate.xaml;ChildWindow\SettingsWindow.xaml;MainWindow.xaml;
 

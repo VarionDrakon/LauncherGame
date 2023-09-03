@@ -35,6 +35,7 @@ C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\bi
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.csproj.AssemblyReference.cache
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.csproj.SuggestedBindingRedirects.cache
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.exe.config
+C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\MainWindow.baml
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\ChildWindow\AllowUpdate.g.cs
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\ChildWindow\SettingsWindow.g.cs
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\MainWindow.g.cs
@@ -44,7 +45,6 @@ C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\ob
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\App.baml
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\ChildWindow\AllowUpdate.baml
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\ChildWindow\SettingsWindow.baml
-C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\MainWindow.baml
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.g.resources
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.Properties.Resources.resources
 C:\Users\VarionDrakon-Life\Source\Repos\DeveloperLauncherGame\LaucnherYouTube\obj\Debug\LaucnherYouTube.csproj.GenerateResource.cache
