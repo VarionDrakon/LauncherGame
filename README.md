@@ -28,8 +28,6 @@
    A wonderful launcher for your project!
     <br />
     <br />
-    <a href="https://github.com/VarionDrakon/LauncherGame/tree/main/SourceCode/LaucnherYouTube/bin/Debug">View Demo</a>
-    ·
     <a href="https://github.com/VarionDrakon/LauncherGame/issues">Report Bug</a>
     ·
     <a href="https://github.com/VarionDrakon/LauncherGame/issues">Request Feature</a>
