@@ -216,19 +216,19 @@ Links to my social networks for communication:
 [RUTube-url]: https://rutube.ru/channel/28612463/
 
 [Instagramm]: https://img.shields.io/badge/Instagramm-C13584?style=for-the-badge&logo=Instagram&logoColor=white
-[Instagramm-url]: https://www.instagram.com/varion.drakon
+[Instagramm-url]: https://www.instagram.com/varion.drakonov
 
 [Telegram]: https://img.shields.io/badge/Telegram-27A7E7?style=for-the-badge&logo=Telegram&logoColor=white
 [Telegram-url]: https://t.me/VarionDrakon
 
 [Facebook]: https://img.shields.io/badge/Facebook-3b5998?style=for-the-badge&logo=Facebook&logoColor=white
-[Facebook-url]: https://web.facebook.com/varion.drakon
+[Facebook-url]: https://web.facebook.com/varion.drakonov
 
 [OK]: https://img.shields.io/badge/OkRu-ed812b?style=for-the-badge&logo=Odnoklassniki&logoColor=white
 [OK-url]: https://ok.ru/varion.drakon
 
 [Twitter]: https://img.shields.io/badge/Twitter-1D9BF0?style=for-the-badge&logo=Twitter&logoColor=white
-[Twitter-url]: https://twitter.com/VrDrakon
+[Twitter-url]: https://twitter.com/varion_drakonov
 
 [Microsoft]: https://img.shields.io/badge/Microsoft-737373?style=for-the-badge&logo=Microsoft&logoColor=white
 [Microsoft-url]: https://learn.microsoft.com/en-us/users/variondrakonov/
