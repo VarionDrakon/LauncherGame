@@ -66,7 +66,7 @@
 
 <div align="center">
   <a href="https://github.com/VarionDrakon/LauncherGame/tree/main/">
-    <img src="res/screenshotApp.png" alt="screenshotApp.png">
+    <img src="res/ScreenshotApp.png" alt="ScreenshotApp.png">
   </a>
 </div>
 This project is being developed as part of amateur entertainment with WPF and improving their skills in developing software with an interface, this project does not pretend to be more serious development due to the code specification and not quite normal cross-platform C#. At the moment, the project is at the penultimate stage of development, after which the project will switch to the "Support" state. At the moment, the application can...
