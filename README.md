@@ -19,7 +19,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/VarionDrakon/LauncherGame/tree/main/">
-    <img src="res/logo.png" alt="Logo" width="400" height="400">
+    <img src="res/logoForLauncherGame.png" alt="logoForLauncherGame.png" width="400" height="400">
   </a>
 
   <h3 align="center"The "Launcher" Project</h3>
